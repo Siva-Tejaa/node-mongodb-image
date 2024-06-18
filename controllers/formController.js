@@ -2,7 +2,7 @@ const Form = require("../models/formModel");
 
 const getFormData = async (req, res) => {
   try {
-    const forms = await Form.find();
+    const forms = await Form.find().sort({ createdAt: -1 });
     // Convert image data to base64
     const formattedForms = forms.map((form) => ({
       ...form._doc,
